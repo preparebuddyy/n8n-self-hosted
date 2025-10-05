@@ -66,16 +66,18 @@ To create a backup, run:
 ```
 This will create a compressed SQL dump of your PostgreSQL database in the `local_files/backups/` directory. It is recommended to run this script regularly (e.g., using a cron job).
 
-## Connecting to External Databases
+## Connecting to Other Services
 
 This n8n setup is part of a larger ecosystem of self-hosted services that can all run on the same `shared_network`. This allows n8n to securely connect to them using their container names as hostnames.
 
-Check out these pre-configured databases that work out-of-the-box with this n8n instance:
+Check out these pre-configured services that work out-of-the-box with this n8n instance:
 
 -   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
 -   [**mysql-self-hosted**](https://github.com/AiratTop/mysql-self-hosted): A self-hosted MySQL instance.
 -   [**clickhouse-self-hosted**](https://github.com/AiratTop/clickhouse-self-hosted): High-performance columnar database for analytics.
 -   [**qdrant-self-hosted**](https://github.com/AiratTop/qdrant-self-hosted): A vector database for AI applications.
+-   [**redis-self-hosted**](https://github.com/AiratTop/redis-self-hosted): A fast in-memory data store, often used as a cache or message broker.
+-   [**caddy-self-hosted**](https://github.com/AiratTop/caddy-self-hosted): A modern, easy-to-use web server with automatic HTTPS.
 
 ## Services
 
