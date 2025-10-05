@@ -30,21 +30,27 @@ This repository provides a Docker Compose setup for running a self-hosted n8n in
     cd n8n-self-hosted
     ```
 
-2.  **Configure the environment:**
+2.  **Create the shared network:**
+    This setup uses a shared network to easily connect to external databases. If you haven't already, create the network:
+    ```bash
+    docker network create shared_network
+    ```
+
+3.  **Configure the environment:**
     Open the `.env` file and update the variables with your own settings.
 
-3.  **Start the application:**
+4.  **Start the application:**
     ```bash
     ./start-docker.sh
     ```
     This will start all the services in detached mode and scale the `n8n-worker` service to 2 replicas.
 
-4.  **Restart the application:**
+5.  **Restart the application:**
     ```bash
     ./restart-docker.sh
     ```
 
-5.  **Update the application:**
+6.  **Update the application:**
     ```bash
     ./update-docker.sh
     ```
@@ -59,6 +65,17 @@ To create a backup, run:
 ./backup.sh
 ```
 This will create a compressed SQL dump of your PostgreSQL database in the `local_files/backups/` directory. It is recommended to run this script regularly (e.g., using a cron job).
+
+## Connecting to External Databases
+
+This n8n setup is part of a larger ecosystem of self-hosted services that can all run on the same `shared_network`. This allows n8n to securely connect to them using their container names as hostnames.
+
+Check out these pre-configured databases that work out-of-the-box with this n8n instance:
+
+-   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
+-   [**mysql-self-hosted**](https://github.com/AiratTop/mysql-self-hosted): A self-hosted MySQL instance.
+-   [**clickhouse-self-hosted**](https://github.com/AiratTop/clickhouse-self-hosted): High-performance columnar database for analytics.
+-   [**qdrant-self-hosted**](https://github.com/AiratTop/qdrant-self-hosted): A vector database for AI applications.
 
 ## Services
 
