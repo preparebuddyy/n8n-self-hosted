@@ -65,6 +65,7 @@ services:
     environment:
       - SUBDOMAIN=${SUBDOMAIN}
       - DOMAIN_NAME=${DOMAIN_NAME}
+      - SSL_EMAIL=${SSL_EMAIL}
     networks: ['shared_network']
     restart: unless-stopped
     ports:
