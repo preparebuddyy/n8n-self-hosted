@@ -9,5 +9,11 @@ ${SUBDOMAIN}.${DOMAIN_NAME} {
 	reverse_proxy n8n-master:5678 {
 		# Disables response buffering, which is crucial for Server-Sent Events (SSE) used by n8n.
 		flush_interval -1
+
+		# Use only when QUEUE_HEALTH_CHECK_ACTIVE=true
+		health_uri /healthz
+		health_interval 5s
+		health_timeout  5s
+		max_fails 2
 	}
 }
