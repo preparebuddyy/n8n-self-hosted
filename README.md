@@ -1,0 +1,83 @@
+# n8n Self-Hosted with Docker
+
+This repository provides a Docker Compose setup for running a self-hosted n8n instance with scaling capabilities.
+
+## Features
+
+- **Works out of the box:** Just configure the `.env` file and run the start script.
+- **Scalable:** Runs n8n in `queue` mode with separate workers, ready for high loads.
+- **Handles Large Files:** Configured to save binary data to the filesystem, allowing workflows to process large files without memory issues.
+- **Ready-to-use Scripts:** Includes simple scripts to start, restart, and update the application.
+- **Long-term History:** Execution history is stored for 2 months.
+- **Secure:** Uses the latest recommended security environment variables for n8n.
+- **Private:** n8n telemetry is disabled by default.
+- **Full-featured:** SMTP is pre-configured for password recovery and other email functions.
+- **Automatic HTTPS:** Uses Caddy as a reverse proxy for automatic SSL certificates.
+- **Persistent Data:** Data is stored in a PostgreSQL database.
+- **Caching:** Uses Redis for caching.
+
+## Prerequisites
+
+- Docker and Docker Compose installed.
+- A domain name pointed to your server's IP address.
+- A `.env` file with the required environment variables.
+
+## Usage
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/AiratTop/n8n-self-hosted
+    cd n8n-self-hosted
+    ```
+
+2.  **Configure the environment:**
+    Open the `.env` file and update the variables with your own settings.
+
+3.  **Start the application:**
+    ```bash
+    ./start-docker.sh
+    ```
+    This will start all the services in detached mode and scale the `n8n-worker` service to 2 replicas.
+
+4.  **Restart the application:**
+    ```bash
+    ./restart-docker.sh
+    ```
+
+5.  **Update the application:**
+    ```bash
+    ./update-docker.sh
+    ```
+    This will automatically create a database backup, pull the latest Docker images, and restart the application.
+
+## Backup
+
+This project includes a script to back up the n8n database.
+
+To create a backup, run:
+```bash
+./backup.sh
+```
+This will create a compressed SQL dump of your PostgreSQL database in the `local_files/backups/` directory. It is recommended to run this script regularly (e.g., using a cron job).
+
+## Services
+
+- `caddy`: Reverse proxy
+- `n8n-master`: Main n8n instance
+- `n8n-worker`: n8n worker instances
+- `n8n-psql`: PostgreSQL database
+- `n8n-redis`: Redis cache
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Author
+
+**Airat Halitov**
+
+- Website: [airat.top](https://airat.top)
+- GitHub: [@AiratTop](https://github.com/AiratTop)
+- Repository: [n8n-self-hosted](https://github.com/AiratTop/n8n-self-hosted)

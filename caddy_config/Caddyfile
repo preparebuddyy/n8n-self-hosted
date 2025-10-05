@@ -1,0 +1,13 @@
+
+# Main n8n service.
+
+${SUBDOMAIN}.${DOMAIN_NAME} {
+	# Prevents search engines from indexing this site.
+	header X-Robots-Tag "noindex, nofollow"
+
+	# Forwards all traffic to the n8n backend service running on port 5678.
+	reverse_proxy n8n-master:5678 {
+		# Disables response buffering, which is crucial for Server-Sent Events (SSE) used by n8n.
+		flush_interval -1
+	}
+}
