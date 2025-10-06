@@ -5,6 +5,10 @@
 
 date
 
+# backup container version
+date >> docker-image-versions.txt
+docker images >> docker-image-versions.txt
+
 # Create a database backup before updating.
 echo "Creating database backup..."
 ./backup.sh
