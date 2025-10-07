@@ -1,6 +1,6 @@
 # n8n Self-Hosted with Docker
 
-This repository provides a Docker Compose setup for running a self-hosted n8n instance with scaling capabilities.
+This repository provides a Docker Compose setup for running a self-hosted [n8n](https://n8n.io/) instance with scaling capabilities.
 
 ## Features
 
