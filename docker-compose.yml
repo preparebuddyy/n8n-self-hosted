@@ -62,15 +62,12 @@ services:
     container_name: n8n-caddy
     hostname: n8n-caddy
     image: caddy:latest
-    environment:
-      - SUBDOMAIN=${SUBDOMAIN}
-      - DOMAIN_NAME=${DOMAIN_NAME}
-      - SSL_EMAIL=${SSL_EMAIL}
     networks: ['shared_network']
     restart: unless-stopped
     ports:
       - '80:80'
       - '443:443'
+      - '443:443/udp'
     volumes:
       - ./data/caddy:/data
       - ./config:/etc/caddy

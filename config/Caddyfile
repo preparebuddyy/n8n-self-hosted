@@ -1,7 +1,14 @@
+# This is a sample Caddyfile. You can edit this file to add your own services.
+
+# Email for SSL Let's Encrypt.
+{
+	email youremail@example.com
+}
+
 
 # Main n8n service.
 
-${SUBDOMAIN}.${DOMAIN_NAME} {
+n8n.your-domain.com {
 	# Prevents search engines from indexing this site.
 	header X-Robots-Tag "noindex, nofollow"
 
@@ -17,3 +24,8 @@ ${SUBDOMAIN}.${DOMAIN_NAME} {
 		max_fails 2
 	}
 }
+
+# Example for another service
+# another-service.your-domain.com {
+# 	reverse_proxy another-service-container-name:8080
+# }
