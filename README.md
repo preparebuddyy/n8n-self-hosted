@@ -84,6 +84,7 @@ Check out these pre-configured services that work out-of-the-box with this n8n i
 -   [**wordpress-self-hosted**](https://github.com/AiratTop/wordpress-self-hosted): Production-ready WordPress stack with MySQL, phpMyAdmin, and WP-CLI.
 -   [**n8n-self-hosted**](https://github.com/AiratTop/n8n-self-hosted): Scalable n8n with workers, Caddy for auto-HTTPS, and backup scripts.
 -   [**monitoring-self-hosted**](https://github.com/AiratTop/monitoring-self-hosted): Self-hosted monitoring stack with Prometheus and Grafana.
+-   [**ollama-self-hosted**](https://github.com/AiratTop/ollama-self-hosted): Ready-to-use solution for running Ollama with the Open WebUI on Docker.
 
 ## Services
 
@@ -105,4 +106,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Website: [airat.top](https://airat.top)
 - GitHub: [@AiratTop](https://github.com/AiratTop)
+- Email: [mail@airat.top](mailto:mail@airat.top)
 - Repository: [n8n-self-hosted](https://github.com/AiratTop/n8n-self-hosted)
