@@ -73,8 +73,8 @@ services:
       - '443:443'
     volumes:
       - ./data/caddy:/data
-      - ./caddy_config:/config
-      - ./caddy_config/Caddyfile:/etc/caddy/Caddyfile
+      - ./config:/config
+      - ./config/Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       n8n-master:
         condition: service_started
