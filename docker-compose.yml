@@ -88,8 +88,6 @@ services:
     command: >
       --requirepass ${REDIS_PWD}
       --bind 0.0.0.0
-    ports:
-      - '6379:6379'
     volumes:
       - ./data/n8n-redis:/data
   n8n-psql:
@@ -97,8 +95,6 @@ services:
     hostname: n8n-psql
     image: postgres:17
     networks: ['shared_network']
-    ports:
-      - '5432:5432'
     restart: always
     environment:
       - POSTGRES_USER=n8n
