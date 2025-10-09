@@ -1,61 +1,61 @@
 x-n8n-common-env: &n8n-common-env
-  - N8N_HOST=${SUBDOMAIN}.${DOMAIN_NAME}
-  - N8N_PORT=5678
-  - N8N_PROTOCOL=https
-  - NODE_ENV=production
-  - WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/
+  N8N_HOST: ${SUBDOMAIN}.${DOMAIN_NAME}
+  N8N_PORT: 5678
+  N8N_PROTOCOL: https
+  NODE_ENV: production
+  WEBHOOK_URL: https://${SUBDOMAIN}.${DOMAIN_NAME}/
   # Sets the timezone for cron nodes, etc.
-  - GENERIC_TIMEZONE=${GENERIC_TIMEZONE}
+  GENERIC_TIMEZONE: ${GENERIC_TIMEZONE}
   # Secret key to encrypt credentials.
-  - N8N_ENCRYPTION_KEY=${N8N_KEY}
+  N8N_ENCRYPTION_KEY: ${N8N_KEY}
   # --- Database ---
-  - DB_TYPE=postgresdb
-  - DB_POSTGRESDB_DATABASE=n8n_db
-  - DB_POSTGRESDB_HOST=n8n-psql
-  - DB_POSTGRESDB_PORT=5432
-  - DB_POSTGRESDB_USER=n8n
-  - DB_POSTGRESDB_SCHEMA=public
-  - DB_POSTGRESDB_PASSWORD=${PSQL_PWD}
+  DB_TYPE: postgresdb
+  DB_POSTGRESDB_DATABASE: n8n_db
+  DB_POSTGRESDB_HOST: n8n-psql
+  DB_POSTGRESDB_PORT: 5432
+  DB_POSTGRESDB_USER: n8n
+  DB_POSTGRESDB_SCHEMA: public
+  DB_POSTGRESDB_PASSWORD: ${PSQL_PWD}
   # --- Workers & Execution Pruning ---
   # 'queue' mode is required for scaling with separate workers.
-  - EXECUTIONS_MODE=queue
-  - QUEUE_BULL_REDIS_HOST=n8n-redis
-  - QUEUE_BULL_REDIS_PASSWORD=${REDIS_PWD}
+  EXECUTIONS_MODE: queue
+  QUEUE_BULL_REDIS_HOST: n8n-redis
+  QUEUE_BULL_REDIS_PASSWORD: ${REDIS_PWD}
   # Max age of executions to keep, in hours: 24h * 30d = 720, 14d = 336, 21d = 504, 60d = 1440
-  - EXECUTIONS_DATA_MAX_AGE=1440
-  - EXECUTIONS_DATA_PRUNE_MAX_COUNT=1000000
-  - EXECUTIONS_DATA_PRUNE=true
+  EXECUTIONS_DATA_MAX_AGE: 1440
+  EXECUTIONS_DATA_PRUNE_MAX_COUNT: 1000000
+  EXECUTIONS_DATA_PRUNE: true
   # --- Security & Customization ---
-  - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
-  - N8N_GIT_NODE_DISABLE_BARE_REPOS=true
-  - N8N_BLOCK_ENV_ACCESS_IN_NODE=true
+  N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
+  N8N_GIT_NODE_DISABLE_BARE_REPOS: true
+  N8N_BLOCK_ENV_ACCESS_IN_NODE: true
   # Performance tuning.
-  - N8N_RUNNERS_ENABLED=true
-  - N8N_RUNNERS_MAX_CONCURRENCY=10
-  - OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS=true
+  N8N_RUNNERS_ENABLED: true
+  N8N_RUNNERS_MAX_CONCURRENCY: 10
+  OFFLOAD_MANUAL_EXECUTIONS_TO_WORKERS: true
   # --- SMTP ---
-  - N8N_EMAIL_MODE=smtp
-  - N8N_SMTP_HOST=${SMTP_HOST}
-  - N8N_SMTP_PORT=${SMTP_PORT}
-  - N8N_SMTP_USER=${SMTP_USER}
-  - N8N_SMTP_PASS=${SMTP_PWD}
-  - N8N_SMTP_SENDER=${SMTP_USER}
-  - N8N_SMTP_SSL=true
+  N8N_EMAIL_MODE: smtp
+  N8N_SMTP_HOST: ${SMTP_HOST}
+  N8N_SMTP_PORT: ${SMTP_PORT}
+  N8N_SMTP_USER: ${SMTP_USER}
+  N8N_SMTP_PASS: ${SMTP_PWD}
+  N8N_SMTP_SENDER: ${SMTP_USER}
+  N8N_SMTP_SSL: true
   # Save binary files to filesystem instead of memory
-  - N8N_DEFAULT_BINARY_DATA_MODE=filesystem
+  N8N_DEFAULT_BINARY_DATA_MODE: filesystem
   # Disable modules and spam
-  - N8N_DISABLED_MODULES=insights
-  # - N8N_TEMPLATES_ENABLED=false
-  - N8N_HIRING_BANNER_ENABLED=false
-  # - N8N_VERSION_NOTIFICATIONS_ENABLED=false
+  N8N_DISABLED_MODULES: insights
+  # N8N_TEMPLATES_ENABLED: false
+  N8N_HIRING_BANNER_ENABLED: false
+  # N8N_VERSION_NOTIFICATIONS_ENABLED: false
   # Disable n8n telemetry events (comment to enable)
-  - N8N_DIAGNOSTICS_ENABLED=false
-  - EXTERNAL_FRONTEND_HOOKS_URLS=
-  - N8N_DIAGNOSTICS_CONFIG_FRONTEND=
-  - N8N_DIAGNOSTICS_CONFIG_BACKEND=
+  N8N_DIAGNOSTICS_ENABLED: false
+  EXTERNAL_FRONTEND_HOOKS_URLS:
+  N8N_DIAGNOSTICS_CONFIG_FRONTEND:
+  N8N_DIAGNOSTICS_CONFIG_BACKEND:
   # Enable n8n /metrics, /healthz and /healthz/readiness endpoints
-  - N8N_METRICS=true
-  - QUEUE_HEALTH_CHECK_ACTIVE=true
+  N8N_METRICS: true
+  QUEUE_HEALTH_CHECK_ACTIVE: true
 
 services:
   caddy:
@@ -98,9 +98,9 @@ services:
     networks: ['shared_network']
     restart: always
     environment:
-      - POSTGRES_USER=n8n
-      - POSTGRES_PASSWORD=${PSQL_PWD}
-      - POSTGRES_DB=n8n_db
+      POSTGRES_USER: n8n
+      POSTGRES_PASSWORD: ${PSQL_PWD}
+      POSTGRES_DB: n8n_db
     volumes:
       - ./data/n8n-psql:/var/lib/postgresql/data
     healthcheck:
