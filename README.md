@@ -72,6 +72,8 @@ This will create a compressed SQL dump of your PostgreSQL database in the `local
 
 This n8n setup is part of a larger ecosystem of self-hosted services that can all run on the same `shared_network`. This allows n8n to securely connect to them using their container names as hostnames.
 
+## See Also
+
 Check out these pre-configured services that work out-of-the-box with this n8n instance:
 
 -   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
@@ -86,6 +88,7 @@ Check out these pre-configured services that work out-of-the-box with this n8n i
 -   [**monitoring-self-hosted**](https://github.com/AiratTop/monitoring-self-hosted): Self-hosted monitoring stack with Prometheus and Grafana.
 -   [**ollama-self-hosted**](https://github.com/AiratTop/ollama-self-hosted): Ready-to-use solution for running Ollama with the Open WebUI on Docker.
 -   [**authentik-self-hosted**](https://github.com/AiratTop/authentik-self-hosted): Authentik is a flexible, open-source Identity & Access Management (IAM) solution.
+-   [**gatus-self-hosted**](https://github.com/AiratTop/gatus-self-hosted): Automated service health dashboard with a PostgreSQL backend and backup scripts.
 
 ## Services
 
