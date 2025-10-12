@@ -59,8 +59,8 @@ x-n8n-common-env: &n8n-common-env
 
 services:
   caddy:
-    container_name: n8n-caddy
-    hostname: n8n-caddy
+    container_name: caddy
+    hostname: caddy
     image: caddy:latest
     networks: ['shared_network']
     restart: always
