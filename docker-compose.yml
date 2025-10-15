@@ -57,6 +57,7 @@ x-n8n-common-env: &n8n-common-env
   N8N_METRICS: true
   QUEUE_HEALTH_CHECK_ACTIVE: true
 
+name: n8n
 services:
   caddy:
     container_name: caddy
