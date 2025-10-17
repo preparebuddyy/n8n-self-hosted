@@ -3,7 +3,8 @@
 # Email for SSL Let's Encrypt.
 {
 	email youremail@example.com
-	log {
+	logging {
+		level WARN
 		format console
 	}
 }
