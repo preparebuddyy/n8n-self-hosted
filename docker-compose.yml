@@ -72,6 +72,7 @@ services:
       - '443:443/udp'
     environment:
       DOMAIN_NAME: ${DOMAIN_NAME}
+      SSL_EMAIL: ${SSL_EMAIL}
     volumes:
       - ./data/caddy:/data
       - ./config:/etc/caddy

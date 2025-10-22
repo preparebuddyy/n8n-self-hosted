@@ -2,7 +2,7 @@
 
 # Email for SSL Let's Encrypt.
 {
-	email youremail@example.com
+	email {$SSL_EMAIL}
 	log {
 		level WARN
 		format console
